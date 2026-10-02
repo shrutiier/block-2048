@@ -1,0 +1,23 @@
+{
+  "name": "block-2048",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run --exclude tests/bot.test.ts",
+    "bot": "vitest run tests/bot.test.ts",
+    "deploy": "npm test && npm run build && cd dist && touch .nojekyll && git init -q -b gh-pages && git add -A && git commit -q -m deploy && git push -f -q \"$(git -C .. remote get-url origin)\" gh-pages && rm -rf .git"
+  },
+  "dependencies": {
+    "matter-js": "^0.20.0"
+  },
+  "devDependencies": {
+    "@types/matter-js": "^0.20.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
+  }
+}
